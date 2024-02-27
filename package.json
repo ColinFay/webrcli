@@ -1,0 +1,28 @@
+{
+  "name": "spidycli",
+  "version": "1.0.0",
+  "description": "cli tools for building node project with webr inside",
+  "main": "index.js",
+  "bin": {
+    "webrcli": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "jest --coverage --detectOpenHandles"
+  },
+  "keywords": [
+    "cli",
+    "webr"
+  ],
+  "author": "colin fay <contact@colinfay.me>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "chalk": "^5.3.0",
+    "tar": "^6.2.0",
+    "webr": "^0.2.2",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
