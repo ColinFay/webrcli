@@ -4,7 +4,7 @@
   "description": "cli tools for building node project with webr inside",
   "main": "index.js",
   "bin": {
-    "webrcli": "./bin/index.js"
+    "spidycli": "./bin/index.js"
   },
   "scripts": {
     "test": "jest --coverage --detectOpenHandles"
