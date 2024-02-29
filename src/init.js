@@ -8,6 +8,7 @@ const {installIt} = require("./install");
 const init = async (destination_folder) => {
 
   log("👉 Initializing project ----");
+  log("(This may take some time, please be patient)")
 
   // Making destination_folder folder full path
   destination_folder = path.resolve(destination_folder);
@@ -18,15 +19,22 @@ const init = async (destination_folder) => {
     fs.mkdirSync(destination_folder, { recursive: true });
   }
 
+  const previousDirectory = process.cwd();
+
+  process.chdir(destination_folder);
+
   // installing npm dependencies
-  execSync(`cd ${destination_folder} && npm init -y`);
-  execSync(`cd ${destination_folder} && npm install webr webrtools`);
+  execSync(`npm init -y`);
+  execSync(`npm install webr webrtools`);
+
+  process.chdir(previousDirectory);
 
   // copying template
   log("👉 Copying template ----");
-  fs.copyFileSync(
-    path.join(__dirname, "..", "template", "index.js"),
-    path.join(destination_folder, "index.js")
+  fs.cpSync(
+    path.join(__dirname, "..", "template"),
+    path.join(destination_folder),
+    { recursive: true }
   );
 
   let webr_packages = path.join(destination_folder, "webr_packages");
@@ -36,6 +44,7 @@ const init = async (destination_folder) => {
     webr_packages
   )
 
+  log("👉 Installing {pkgload} ----");
   await installIt("pkgload", webr_packages)
 
   return;
