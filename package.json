@@ -1,6 +1,6 @@
 {
   "name": "spidycli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "cli tools for building node project with webr inside",
   "main": "index.js",
   "bin": {
