@@ -1,11 +1,19 @@
 # webrcli
 
+[EXPERIMENTAL] Do not use in prod
+
 cli tools for building node project with webr inside
 
 ## Install
 
 ```bash
 npm install -g spidycli
+```
+
+## Get version
+
+```bash
+spidycli --version
 ```
 
 ## Init a project
