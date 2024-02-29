@@ -7,13 +7,13 @@ cli tools for building node project with webr inside
 ## Install
 
 ```bash
-npm install -g spidycli
+npm install -g webrcli
 ```
 
 ## Get version
 
 ```bash
-spidycli --version
+webrcli --version
 ```
 
 ## Init a project
@@ -21,7 +21,7 @@ spidycli --version
 - Initiate and configure a project:
 
 ```bash
-spidycli init ./mywebrapp
+webrcli init ./mywebrapp
 ```
 
 ## Command line tools
@@ -29,22 +29,22 @@ spidycli init ./mywebrapp
 - Download a webR compiled package and its dependencies:
 
 ```bash
-spidycli install cowsay
+webrcli install cowsay
 ```
 
 - Read a DESCRIPTION file and build the webR package library
 
 ```bash
-spidycli installFromDesc $(pwd)/rfuns/DESCRIPTION
+webrcli installFromDesc $(pwd)/rfuns/DESCRIPTION
 ```
 
 ## Working example
 
 ```bash
 cd /tmp
-spidycli init cowsaywebr
+webrcli init cowsaywebr
 cd cowsaywebr
-spidycli install cowsay
+webrcli install cowsay
 ```
 
 Modify the index.js with this line juste before the end of the function
