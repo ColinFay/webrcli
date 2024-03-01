@@ -1,6 +1,6 @@
 # webrcli
 
-[EXPERIMENTAL] Do not use in prod
+[EXPERIMENTAL] Do not use
 
 cli tools for building node project with webr inside
 
