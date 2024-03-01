@@ -25,7 +25,7 @@ const init = async (destination_folder) => {
 
   // installing npm dependencies
   execSync(`npm init -y`);
-  execSync(`npm install webr webrtools`);
+  execSync(`npm install webr spidyr`);
 
   process.chdir(previousDirectory);
 
