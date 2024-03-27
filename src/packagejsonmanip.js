@@ -6,7 +6,7 @@ function parsePackageJson(filePath) {
     const packageJson = JSON.parse(fileContent);
     return packageJson;
   } catch (error) {
-    console.error('Error parsing package.json:', error);
+    console.error('Error parsing pouet.json:', error);
     return null;
   }
 }

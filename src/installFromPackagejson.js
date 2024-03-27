@@ -1,14 +1,20 @@
 const fs = require('fs');
 const installIt = require('./install');
+const {parsePackageJson} = require('./packagejsonmanip');
 
-function installFromPackageJson(destination_folder = "webr_packages") {
+function installFromPackageJson(
+  package_json = "package.json",
+  destination_folder = "webr_packages"
+) {
   // Read the package.json file
-  const packageJson = fs.readFileSync('package.json', 'utf8');
-  const dependencies = JSON.parse(packageJson).rdependencies;
-
-  // Loop over the dependencies and run installIt for each entry
+  const package_json_read = parsePackageJson(package_json);
+  const dependencies = package_json_read.rdependencies;
+  // Install the dependencies
   for (const dependency in dependencies) {
-    installIt(dependency);
+    installIt(
+      dependency,
+      destination_folder
+    );
   }
 }
 
