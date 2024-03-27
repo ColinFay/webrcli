@@ -83,7 +83,7 @@ const installFromDesc = async function (
   await webR.close()
 
   if (with_exit) {
-    process.exit(1)
+    process.exit(0)
   }
 
 }
@@ -100,7 +100,7 @@ const install = async function (
   )
 
   if (with_exit) {
-    process.exit(1)
+    process.exit(0)
   }
 }
 
