@@ -1,4 +1,3 @@
-const fs = require('fs');
 const {installIt} = require('./install');
 const {parsePackageJson} = require('./packagejsonmanip');
 
