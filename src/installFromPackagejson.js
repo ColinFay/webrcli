@@ -1,5 +1,5 @@
 const fs = require('fs');
-const installIt = require('./install');
+const {installIt} = require('./install');
 const {parsePackageJson} = require('./packagejsonmanip');
 
 function installFromPackageJson(
@@ -9,13 +9,21 @@ function installFromPackageJson(
   // Read the package.json file
   const package_json_read = parsePackageJson(package_json);
   const dependencies = package_json_read.rdependencies;
-  // Install the dependencies
-  for (const dependency in dependencies) {
-    installIt(
-      dependency,
-      destination_folder
-    );
+
+  if (dependencies){
+    // Install the dependencies
+    for (let dependency of dependencies) {
+      installIt(
+        dependency,
+        destination_folder
+      );
+    }
+  } else {
+    console.log("❗️ No rdependencies found in the package.json file");
   }
+
 }
 
-module.exports = installFromPackageJson;
+module.exports = {
+  installFromPackageJson: installFromPackageJson
+}
