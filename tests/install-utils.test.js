@@ -9,7 +9,7 @@ test('installOnePackage works', async () => {
   let pkgname = 'sudoku';
   let url = 'https://cran.r-project.org/src/contrib/sudoku_2.8.tar.gz';
   let destination_folder = path.join(os.tmpdir(), 'sudoku');
-
+  process.cwd = jest.fn().mockReturnValue(destination_folder);
   if (
     fs.existsSync(destination_folder)
   ) {

@@ -8,7 +8,7 @@ const { timeLog } = require('console');
 
 test('installIt works', async () => {
   let temp_dir = path.join(os.tmpdir(), 'install');
-
+  process.cwd = jest.fn().mockReturnValue(temp_dir);
   if (
     fs.existsSync(temp_dir)
   ) {
