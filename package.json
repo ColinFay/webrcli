@@ -1,6 +1,6 @@
 {
   "name": "webrcli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "cli tools for building node project with webr inside",
   "main": "index.js",
   "bin": {
