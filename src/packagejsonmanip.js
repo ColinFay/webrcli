@@ -33,8 +33,26 @@ function addDependencies(
   writePackageJson(packageJson, pk)
 }
 
+const append_package_json = function (package_to_add) {
+  const package_json_path = process.cwd() + "/package.json";
+  if (fs.existsSync(package_json_path)) {
+    const package_json = JSON.parse(fs.readFileSync(package_json_path));
+
+    if (!package_json.rdependencies) {
+      package_json.rdependencies = [];
+    }
+
+    package_json.rdependencies.push(package_to_add);
+    package_json.rdependencies = [...new Set(package_json.rdependencies)]
+    fs.writeFileSync(package_json_path, JSON.stringify(package_json, null, 2));
+  } else {
+    console.log("❗️ No package.json file found");
+  }
+}
+
 module.exports = {
   parsePackageJson,
   writePackageJson,
-  addDependencies
+  addDependencies,
+  append_package_json
 };
