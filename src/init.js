@@ -27,6 +27,11 @@ const init = async (destination_folder) => {
   execSync(`npm init -y`);
   execSync(`npm install webr spidyr`);
 
+  // append to package.json
+  let packageJson = JSON.parse(fs.readFileSync("package.json"));
+  packageJson.scripts["postinstall"] = "webrcli installFromPackageJson";
+  fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
+
   process.chdir(previousDirectory);
 
   // copying template
@@ -44,8 +49,12 @@ const init = async (destination_folder) => {
     webr_packages
   )
 
+  process.chdir(destination_folder);
+
   log("👉 Installing {pkgload} ----");
   await installIt("pkgload", webr_packages)
+
+  process.chdir(previousDirectory);
 
   return;
 
