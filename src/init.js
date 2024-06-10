@@ -24,13 +24,19 @@ const init = async (destination_folder) => {
   process.chdir(destination_folder);
 
   // installing npm dependencies
+  log("⏳ launching npm init, installing webr & spidyr----");
   execSync(`npm init -y`);
   execSync(`npm install webr spidyr`);
+
+  // append to package.json
+  let packageJson = JSON.parse(fs.readFileSync("package.json"));
+  packageJson.scripts["postinstall"] = "webrcli installFromPackageJson";
+  fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
 
   process.chdir(previousDirectory);
 
   // copying template
-  log("👉 Copying template ----");
+  log("💀 Copying project skeleton ----");
   fs.cpSync(
     path.join(__dirname, "..", "template"),
     path.join(destination_folder),
@@ -44,8 +50,12 @@ const init = async (destination_folder) => {
     webr_packages
   )
 
+  process.chdir(destination_folder);
+
   log("👉 Installing {pkgload} ----");
   await installIt("pkgload", webr_packages)
+
+  process.chdir(previousDirectory);
 
   return;
 

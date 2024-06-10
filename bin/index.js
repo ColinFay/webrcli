@@ -4,6 +4,7 @@ const { hideBin } = require('yargs/helpers')
 
 const { install, installFromDesc } = require('../src/install')
 const { init } = require('../src/init')
+const { installFromPackageJson } = require('../src/installFromPackagejson')
 
 yargs(hideBin(process.argv))
   .command(
@@ -56,5 +57,23 @@ yargs(hideBin(process.argv))
     (argv) => {
       installFromDesc(argv.description_file, argv.destination_folder)
     }
-  )
+).
+  command(
+    'installFromPackageJson [packageJson] [destination_folder]',
+    'Install dependencies from package.json file containing an "rdependencies" entry.',
+    (yargs) => {
+      yargs.
+        positional('packageJson', {
+          type: 'string',
+          describe: 'Path to the package.json file.',
+          default: "package.json",
+        })
+        .positional('destination_folder', {
+          type: 'string',
+          default: "./webr_packages",
+          describe: 'Where to install the packages',
+        });
+    }, (argv) => {
+      installFromPackageJson(argv.packageJson, argv.destination_folder)
+    })
   .parse();

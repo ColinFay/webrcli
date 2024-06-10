@@ -3,6 +3,7 @@ const fs = require("fs");
 
 const { installOnePackage } = require('./install-utils');
 const { create_mount_folder_init_webr } = require('./config-utils.js');
+const { append_package_json } = require('./packagejsonmanip');
 
 const installIt = async function (
   package_to_install,
@@ -43,6 +44,8 @@ const installIt = async function (
       destination_folder
     )
   }
+
+  append_package_json(package_to_install)
 
   await webR.close();
 

@@ -7,6 +7,7 @@ const fs = require('fs');
 test('init works', async () => {
   // set a temp dir
   let temp_dir = path.join(os.tmpdir(), 'coucou')
+  process.cwd = jest.fn().mockReturnValue(temp_dir);
 
   if (
     fs.existsSync(temp_dir)
