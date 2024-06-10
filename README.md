@@ -21,7 +21,7 @@ webrcli --version
 - Initiate and configure a project:
 
 ```bash
-webrcli init ./mywebrapp
+webrcli init mywebrapp
 ```
 
 ## Command line tools
@@ -37,6 +37,10 @@ webrcli install cowsay
 ```bash
 webrcli installFromDesc $(pwd)/rfuns/DESCRIPTION
 ```
+
+## Other functions
+
+- `webrcli installFromPackageJson` used when running `npm start`, so you probably do not need to use it manually. This function takes a `package.json` file with an `rdependencies` entry and install the packages listed there.
 
 ## Working example
 
@@ -56,7 +60,7 @@ await globalThis.webR.evalR('cowsay::say("Hello from R!")');
 Then run
 
 ```bash
-node index.js
+npm start
 ```
 
 
