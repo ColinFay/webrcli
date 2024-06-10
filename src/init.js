@@ -31,12 +31,13 @@ const init = async (destination_folder) => {
   // append to package.json
   let packageJson = JSON.parse(fs.readFileSync("package.json"));
   packageJson.scripts["postinstall"] = "webrcli installFromPackageJson";
+  packageJson.scripts["start"] = "node index.js";
   fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
 
   process.chdir(previousDirectory);
 
   // copying template
-  log("💀 Copying project skeleton ----");
+  log("🗂️ Copying project skeleton ----");
   fs.cpSync(
     path.join(__dirname, "..", "template"),
     path.join(destination_folder),
