@@ -24,6 +24,7 @@ const init = async (destination_folder) => {
   process.chdir(destination_folder);
 
   // installing npm dependencies
+  log("⏳ launching npm init, installing webr & spidyr----");
   execSync(`npm init -y`);
   execSync(`npm install webr spidyr`);
 
@@ -35,7 +36,7 @@ const init = async (destination_folder) => {
   process.chdir(previousDirectory);
 
   // copying template
-  log("👉 Copying template ----");
+  log("💀 Copying project skeleton ----");
   fs.cpSync(
     path.join(__dirname, "..", "template"),
     path.join(destination_folder),
