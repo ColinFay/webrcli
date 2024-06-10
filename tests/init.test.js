@@ -1,4 +1,5 @@
 const {init} = require('../src/init');
+const { parsePackageJson } = require('../src/packagejsonmanip');
 
 const path = require('path');
 const os = require('os');
@@ -30,6 +31,16 @@ test('init works', async () => {
       path.join(temp_dir, 'package.json')
     )
   ).toBe(true);
+
+  let packageJson = parsePackageJson(path.join(temp_dir, 'package.json'));
+
+  expect(
+    packageJson.scripts.postinstall
+    ).toBe('webrcli installFromPackageJson');
+
+  expect(
+    packageJson.scripts.start
+  ).toBe('node index.js');
 
   expect(
     fs.existsSync(
