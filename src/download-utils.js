@@ -34,7 +34,7 @@ async function download_and_untar(
 
     // Delete the tarball
     fs.unlinkSync(full_path)
-    console.log(`✅ {${pkgname}} downloaded and extracted ----\n`);
+    console.log(`✅ {${pkgname}} downloaded and extracted ----`);
   } catch (error) {
     console.error('Error:', error.message);
   }
