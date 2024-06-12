@@ -29,6 +29,11 @@ const installIt = async function (
     package_to_install
   )
 
+  if (urlsr.values[0] === false){
+    console.error(`❌ {${package_to_install}} not found on the webr package repository.`)
+    return false
+  }
+
   const paks = urlsr.values[0].values
   const urls = urlsr.values[1].values
   let compiled_urls = {}

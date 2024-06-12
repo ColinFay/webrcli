@@ -21,6 +21,13 @@ get_list_of_tar_gz_dependencies_for_package <- function(
 
   options(repos = c(webr = repos))
 
+  # Getting the list of available package
+  info <- utils::available.packages(contriburl = repos)
+
+  if (!pk_to_install %in% info[, "Package"]) {
+    return(FALSE)
+  }
+
   deps <- unique(
     unlist(
       use.names = FALSE,
@@ -40,8 +47,7 @@ get_list_of_tar_gz_dependencies_for_package <- function(
     deps
   )
 
-  # Getting the list of available package
-  info <- utils::available.packages(contriburl = repos)
+
 
   res <- data.frame(
     package = character(0),

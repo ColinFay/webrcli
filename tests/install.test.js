@@ -18,6 +18,10 @@ test('installIt works', async () => {
     )
   };
 
+  const pkg_not_installed = await installIt("pouetpouet", temp_dir);
+
+  expect(pkg_not_installed).toBe(false);
+
   await installIt("attempt",temp_dir);
 
   expect(
