@@ -1,18 +1,24 @@
 const fs = require("fs");
 const path = require("path");
 const log = console.log;
+const error = console.error;
 const { execSync } = require("child_process");
 
 const {installIt} = require("./install");
 
 const init = async (destination_folder) => {
 
+  // check if destination_folder does not exists
+  if (fs.existsSync(destination_folder)){
+    error(`❌ A folder named ${destination_folder} already exists. \nPlease choose another name or remove the existing folder.`);
+    return false;
+  }
+
   log("👉 Initializing project ----");
   log("(This may take some time, please be patient)")
 
   // Making destination_folder folder full path
   destination_folder = path.resolve(destination_folder);
-  basename = path.basename(destination_folder);
 
   // creating the folder if it doesn't exist
   if (!fs.existsSync(destination_folder)){

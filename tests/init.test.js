@@ -60,4 +60,9 @@ test('init works', async () => {
     )
   ).toBe(true);
 
+  // testing that the function return undefined
+  // if the folder already exists
+  const folder_can_be_created = await init(temp_dir);
+  expect(folder_can_be_created).toBe(false);
+
 }, 1000000);
