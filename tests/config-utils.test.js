@@ -28,6 +28,6 @@ test('create_mount_folder_init_webr works', async () => {
 
   expect(webrinstallscripts_l).toEqual(1);
 
-  webR.close();
+  await webR.close();
 
 });

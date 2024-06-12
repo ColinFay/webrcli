@@ -78,7 +78,16 @@ test('installFromDesc works', async () => {
       { recursive: true, force: true }
     )
   };
+
   const DESCRIPTION = path.join(__dirname, "./", "DESCRIPTION");
+
+  const package_not_installed = await installFromDesc(DESCRIPTION, temp_dir, with_exit = false);
+
+  expect(
+    package_not_installed
+  ).toBe(false);
+
+  fs.mkdirSync(temp_dir);
 
   await installFromDesc(DESCRIPTION, temp_dir, with_exit = false);
 

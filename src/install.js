@@ -63,6 +63,18 @@ const installFromDesc = async function (
   with_exit = true
 ){
 
+  // fails if description_file does not exist
+  if (!fs.existsSync(description_file)) {
+    console.error(`❌ {${description_file}} does not exist.`)
+    return false
+  }
+
+  // fails if destination_folder does not exist
+  if (!fs.existsSync(destination_folder)) {
+    console.error(`❌ {${destination_folder}} does not exist.`)
+    return false
+  }
+
   const webR = new WebR();
 
   await webR.init();
