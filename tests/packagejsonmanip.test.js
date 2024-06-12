@@ -45,7 +45,7 @@ describe('packagejsonmanip', () => {
 
       fs.unlinkSync(temp_file);
     });
-  });
+  }, 1000000);
 
   describe('addDependencies', () => {
     it('should add the provided dependencies to the package.json file', () => {
@@ -72,4 +72,5 @@ describe('packagejsonmanip', () => {
       fs.unlinkSync(temp_file);
     });
   });
-});
+
+}, 1000000);

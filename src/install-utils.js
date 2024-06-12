@@ -10,7 +10,7 @@ const installOnePackage = async function (
 ) {
   // check if the package is already installed
   if (fs.existsSync(path.join(destination_folder, pkgname))) {
-    console.log(`❗️ Package {${pkgname}} is already installed`)
+    console.log(`❗️ {${pkgname}} is already installed`)
     return
   }
 

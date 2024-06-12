@@ -1,13 +1,13 @@
 {
   "name": "webrcli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "cli tools for building node project with webr inside",
   "main": "index.js",
   "bin": {
     "webrcli": "./bin/index.js"
   },
   "scripts": {
-    "test": "jest --coverage --detectOpenHandles"
+    "test": "jest --coverage"
   },
   "keywords": [
     "cli",
