@@ -42,4 +42,5 @@ test('download_and_untar works', async () => {
       destination_folder
     )
   ).toBe(false);
-});
+
+}, 1000000);

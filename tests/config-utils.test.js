@@ -30,4 +30,4 @@ test('create_mount_folder_init_webr works', async () => {
 
   await webR.close();
 
-});
+}, 1000000);

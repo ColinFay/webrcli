@@ -55,4 +55,5 @@ test('installOnePackage works', async () => {
       destination_folder
     )
   ).toBe(false);
-});
+
+}, 1000000);

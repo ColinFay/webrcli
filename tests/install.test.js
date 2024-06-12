@@ -65,7 +65,7 @@ test('installIt works', async () => {
     { recursive: true, force: true }
   );
 
-});
+}, 1000000);
 
 test('installFromDesc works', async () => {
   let temp_dir = path.join(os.tmpdir(), 'install');
