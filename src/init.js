@@ -37,9 +37,10 @@ const init = async (destination_folder) => {
   process.chdir(previousDirectory);
 
   // copying template
-  log("🗂️ Copying project skeleton ----");
+  log("🗂️ Copying project skeleton from spidyr----");
+
   fs.cpSync(
-    path.join(__dirname, "..", "template"),
+    path.join(destination_folder, "node_modules", "spidyr", "template"),
     path.join(destination_folder),
     { recursive: true }
   );
