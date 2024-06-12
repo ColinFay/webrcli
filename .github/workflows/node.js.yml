@@ -4,8 +4,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install modules
-      run: yarn
-    - name: Run tests
-      run: yarn test
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest tests
+        run: npm test
