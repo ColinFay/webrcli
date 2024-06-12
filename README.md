@@ -51,13 +51,17 @@ cd cowsaywebr
 webrcli install cowsay
 ```
 
-Modify the index.js with this line juste before the end of the function
+Add to your index.js
 
 ```javascript
-await globalThis.webR.evalR('cowsay::say("Hello from R!")');
+// At the top of the script
+const { library } = require('spidyr');
+
+const cowsay = await library("cowsay");
+await cowsay.say("Hello world");
 ```
 
-Then run
+Then, back to your console :
 
 ```bash
 npm start
