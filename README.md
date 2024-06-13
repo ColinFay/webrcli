@@ -1,6 +1,6 @@
 # webrcli
 
-[EXPERIMENTAL] Do not use
+[Work in Progress] Please consider the API unstable until v1.0.0 is reached.
 
 cli tools for building node project with webr inside
 
